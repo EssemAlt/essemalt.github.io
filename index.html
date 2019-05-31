@@ -230,17 +230,17 @@
         var libopenmpt = {};
         libopenmpt.onRuntimeInitialized = function() {
             var player = new ChiptuneJsPlayer(new ChiptuneJsConfig(-1));
-            player.load("images/tuber_theme_14.xm", function(buffer) {
+            player.load("tuber_theme_14.xm", function(buffer) {
                 player.play(buffer);
             });
         };
     </script>
-    <script src="js/libopenmpt.js"></script>
-    <script src="js/chiptune2.js"></script>
+    <script src="libopenmpt.js"></script>
+    <script src="chiptune2.js"></script>
 </head>
 
 <body>
-    <iframe src="images/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+    <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
     <div id="particles-js"></div>
     <div class="cube">
         <div class="top"></div>
