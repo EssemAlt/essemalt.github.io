@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>this is epic dot space</title>
+    </head>
+    <body>
+        <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+        <div class="container">
+            <iframe src="epic.mp4" allow="autoplay" id="epic" frameBorder="0"></iframe>
+        </div>
+        <style>
+          .container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -100;
+          }
+          #epic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%;
+          }
+          body {
+            background-color: black;
+          }
+        </style>
+    </body>
+</html>
