@@ -227,15 +227,20 @@
         }
     </style>
     <script>
+	var script = document.createElement('script');
+	var scripts = document.getElementsByTagName('script')[0];
+	script.src = "libopenmpt.js";
+	scripts.parentNode.insertBefore(script, scripts);
+	    
         var libopenmpt = {};
         libopenmpt.onRuntimeInitialized = function() {
             var player = new ChiptuneJsPlayer(new ChiptuneJsConfig(-1));
-            player.load("tuber_theme_14.xm", function(buffer) {
+            player.load("/tuber_theme_14.xm", function(buffer) {
                 player.play(buffer);
             });
         };
     </script>
-    <script src="libopenmpt.js"></script>
+    <!--script src="js/libopenmpt.js"></script-->
     <script src="chiptune2.js"></script>
 </head>
 
