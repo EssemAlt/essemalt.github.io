@@ -7,9 +7,18 @@
     </head>
     <body>
         <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-        <div class="container">
+        <div class="container" id="video">
             <video src="thisisepic.mp4" autoplay id="epic"></iframe>
         </div>
+        <script>
+            var video = document.getElementById("video");
+            var epic = document.getElementById("epic");
+            video.addEventListener("click", function() {
+                if (epic.paused || epic.ended) {
+                    epic.play();
+                }
+            });
+        </script>
         <style>
           .container {
             position: fixed;
