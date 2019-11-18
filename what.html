@@ -2,6 +2,11 @@
 
 <head>
   <title>hello</title>
+  <meta property="og:title" content="awesome">
+  <meta property="og:site_name" content="this is epic">
+  <meta property="og:url" content="https://this-is-epic.space/what.html">
+  <meta property="og:description" content="cool thing">
+  <meta property="og:type" content="object">
   <style>
     :root {
       --scenePerspective: 1;
@@ -276,7 +281,7 @@
   <div class="text">is this thing on</div>
   <script>
     var body = document.getElementById("what");
-    body.addEventListener("click", function() {
+    body.addEventListener("click", function () {
       var audioContext = new AudioContext();
       console.log(audioContext);
       play();
