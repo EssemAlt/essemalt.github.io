@@ -43,6 +43,7 @@
 
     .viewport {
       height: calc(var(--viewportHeight) * 1px);
+      pointer-events: none;
     }
 
     .viewport .scene3D-container {
@@ -242,8 +243,8 @@
 
 <body>
   <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+  <button id="what">test</button>
   <div class="viewport">
-    <div id="what">test</div>
     <div class="scene3D-container">
       <div class="checkerboard"></div>
     </div>
