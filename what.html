@@ -240,9 +240,10 @@
   </script>
 </head>
 
-<body id="what">
+<body>
   <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
   <div class="viewport">
+    <div id="what">test</div>
     <div class="scene3D-container">
       <div class="checkerboard"></div>
     </div>
@@ -276,9 +277,8 @@
     var body = document.getElementById("what");
     body.addEventListener("click", function() {
       var audioContext = new AudioContext();
-      if (audioContext.state === "suspended") {
-        play();
-      }
+      console.log(audioContext);
+      play();
     });
   </script>
 </body>
