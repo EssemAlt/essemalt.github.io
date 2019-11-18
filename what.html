@@ -225,14 +225,8 @@
   </style>
   <script src="scriptracker-1.1.1.min.js"></script>
   <script>
-    var playing = false;
     function onSongLoaded(player) {
-      if (playing === false) {
-        var audioContext = new AudioContext();
-        player.play();
-        console.log(audioContext);
-        if (audioContext) playing = true;
-      }
+      player.play();
     }
 
     function play() {
@@ -281,8 +275,8 @@
   <script>
     var body = document.getElementById("what");
     body.addEventListener("click", function() {
-      if (playing === false) {
-        console.log(playing);
+      var audioContext = new AudioContext();
+      if (audioContext.state === "suspended") {
         play();
       }
     });
