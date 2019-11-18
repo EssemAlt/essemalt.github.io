@@ -9,9 +9,9 @@
   <meta property="og:type" content="object">
   <style>
     :root {
-      --scenePerspective: 1;
+      --scenePerspective: 5;
       --scenePerspectiveOriginX: 50;
-      --scenePerspectiveOriginY: 10;
+      --scenePerspectiveOriginY: 25;
       --itemZ: 0;
       --cameraSpeed: 150;
       --cameraZ: 0;
@@ -58,7 +58,7 @@
       width: 100%;
       height: 50%;
       perspective: calc(var(--scenePerspective) * var(--cameraSpeed) * 1px);
-      /*perspective-origin: calc(var(--scenePerspectiveOriginX) * 1%) calc(var(--scenePerspectiveOriginY) * 1%);*/
+      perspective-origin: calc(var(--scenePerspectiveOriginX) * 1%) calc(var(--scenePerspectiveOriginY) * 1%);
       will-change: perspective-origin;
       transform: translate3d(0, 0, 0);
     }
@@ -74,7 +74,6 @@
       height: 200%;
       transform: rotateX(90deg);
       animation: move 3s infinite alternate ease-in-out;
-      transform-style: preserve-3d;
       background-repeat: repeat;
     }
 
