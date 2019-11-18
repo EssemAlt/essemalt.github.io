@@ -225,8 +225,10 @@
   </style>
   <script src="scriptracker-1.1.1.min.js"></script>
   <script>
+    var playing = false;
     function onSongLoaded(player) {
       player.play();
+      playing = true;
     }
 
     function play() {
@@ -274,7 +276,9 @@
   <div class="text">is this thing on</div>
   <script>
     var body = document.getElementById("what");
-    body.addEventListener("click", play);
+    body.addEventListener("click", function() {
+      if (!playing) play();
+    });
   </script>
 </body>
 
