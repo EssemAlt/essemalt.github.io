@@ -279,8 +279,8 @@
   <script>
     var body = document.getElementById("what");
     body.addEventListener("click", function() {
-      if (!playing) {
-        console.log("what");
+      if (playing === false) {
+        console.log(playing);
         play();
       }
     });
