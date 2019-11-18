@@ -229,15 +229,21 @@
       player.play();
     }
 
-    var modPlayer = new ScripTracker();
-    modPlayer.on(ScripTracker.Events.playerReady, onSongLoaded);
-    fetch("physical_presence.mod").then(response => response.arrayBuffer()).then(buffer => {
-      modPlayer.loadRaw(new Uint8Array(buffer), "mod");
-    });
+    var body = document.getElementById("what");
+    body.addEventListener("click", play);
+
+    function play() {
+      var modPlayer = new ScripTracker();
+      modPlayer.on(ScripTracker.Events.playerReady, onSongLoaded);
+      fetch("physical_presence.mod").then(response => response.arrayBuffer()).then(buffer => {
+        modPlayer.loadRaw(new Uint8Array(buffer), "mod");
+      });
+    }
+    play();
   </script>
 </head>
 
-<body>
+<body id="what">
   <iframe src="images/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
   <div class="viewport">
     <div class="scene3D-container">
