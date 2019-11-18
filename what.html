@@ -227,10 +227,10 @@
   <script>
     var playing = false;
     function onSongLoaded(player) {
-      var audioContext = new AudioContext();
-      player.play();
-      console.log(audioContext);
-      if (audioContext.currentTime > 0) playing = true;
+      if (playing === false) {
+        player.play();
+        playing = true;
+      }
     }
 
     function play() {
