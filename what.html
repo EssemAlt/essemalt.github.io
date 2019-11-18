@@ -228,8 +228,10 @@
     var playing = false;
     function onSongLoaded(player) {
       if (playing === false) {
+        var audioContext = new AudioContext();
         player.play();
-        playing = true;
+        console.log(audioContext);
+        if (audioContext) playing = true;
       }
     }
 
