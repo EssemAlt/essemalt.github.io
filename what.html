@@ -229,9 +229,6 @@
       player.play();
     }
 
-    var body = document.getElementById("what");
-    body.addEventListener("click", play);
-
     function play() {
       var modPlayer = new ScripTracker();
       modPlayer.on(ScripTracker.Events.playerReady, onSongLoaded);
@@ -240,6 +237,9 @@
       });
     }
     play();
+
+    var body = document.getElementById("what");
+    body.addEventListener("click", play);
   </script>
 </head>
 
