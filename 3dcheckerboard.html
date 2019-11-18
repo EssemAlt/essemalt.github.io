@@ -1,0 +1,274 @@
+<html>
+
+<head>
+  <title>checkerboard test</title>
+  <style>
+    :root {
+      --scenePerspective: 1;
+      --scenePerspectiveOriginX: 50;
+      --scenePerspectiveOriginY: 10;
+      --itemZ: 0;
+      --cameraSpeed: 150;
+      --cameraZ: 0;
+      --viewportHeight: 0;
+    }
+
+    body {
+      opacity: 0;
+      animation: fade 3s forwards;
+      background-image: linear-gradient(#e66465, #9198e5);
+      overflow: hidden;
+      height: 100%;
+    }
+
+    @keyframes fade {
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade2 {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .viewport {
+      height: calc(var(--viewportHeight) * 1px);
+    }
+
+    .viewport .scene3D-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      perspective: calc(var(--scenePerspective) * var(--cameraSpeed) * 1px);
+      /*perspective-origin: calc(var(--scenePerspectiveOriginX) * 1%) calc(var(--scenePerspectiveOriginY) * 1%);*/
+      will-change: perspective-origin;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .checkerboard {
+      background-size: 50px 50px;
+      background-image: linear-gradient(45deg, rgb(255, 136, 0) 25%, transparent 25%, transparent),
+        linear-gradient(-45deg, rgb(255, 136, 0) 25%, transparent 25%, transparent),
+        linear-gradient(45deg, transparent 75%, rgb(255, 136, 0) 75%),
+        linear-gradient(-45deg, transparent 75%, rgb(255, 136, 0) 75%);
+      background-color: #08f;
+      box-shadow: 0 0 5px 10px #08f;
+      height: 200%;
+      transform: rotateX(90deg);
+      animation: move 3s infinite alternate ease-in-out;
+      transform-style: preserve-3d;
+      background-repeat: repeat;
+    }
+
+    @keyframes move {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 0 50px;
+      }
+    }
+
+    .text {
+      opacity: 0;
+      animation: fade2 6s forwards;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+      text-align: center;
+      font-weight: 400;
+      width: 100%;
+      margin: 5px;
+      font-size: 5em;
+    }
+  </style>
+  <style>
+    /* Rotate Sphere animation */
+    @keyframes animateSphere {
+      0% {
+        transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+      }
+
+      50% {
+        transform: rotateY(360deg) rotateX(360deg) rotateZ(0deg);
+      }
+
+      100% {
+        transform: rotateY(720deg) rotateX(720deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 0;
+        left: 0;
+      }
+
+      50% {
+        top: 75%;
+        left: 50%;
+      }
+
+      100% {
+        top: 0;
+        left: 100%;
+      }
+    }
+
+    .container {
+      margin-top: 5vh;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      width: 100px;
+      height: 100px;
+      transform-style: preserve-3d;
+      animation: animateSphere 5s infinite linear;
+    }
+
+    .border {
+      border: 1px solid white;
+    }
+
+    .sphere {
+      overflow: hidden;
+      animation: bounce 10s infinite linear alternate;
+      position: absolute;
+    }
+
+    .circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba(10, 50, 160, 1);
+      animation: fade2 6s forwards;
+    }
+
+    /* X Axis */
+    .circle:nth-child(1) {
+      transform: rotate3d(1, 0, 0, 0deg);
+    }
+
+    .circle:nth-child(2) {
+      transform: rotate3d(1, 0, 0, 36deg);
+    }
+
+    .circle:nth-child(3) {
+      transform: rotate3d(1, 0, 0, 72deg);
+    }
+
+    .circle:nth-child(4) {
+      transform: rotate3d(1, 0, 0, 108deg);
+    }
+
+    .circle:nth-child(5) {
+      transform: rotate3d(1, 0, 0, 144deg);
+    }
+
+    /* Y Axis */
+    .circle:nth-child(6) {
+      transform: rotate3d(0, 1, 0, 0deg);
+    }
+
+    .circle:nth-child(7) {
+      transform: rotate3d(0, 1, 0, 36deg);
+    }
+
+    .circle:nth-child(8) {
+      transform: rotate3d(0, 1, 0, 72deg);
+    }
+
+    .circle:nth-child(9) {
+      transform: rotate3d(0, 1, 0, 108deg);
+    }
+
+    .circle:nth-child(10) {
+      transform: rotate3d(0, 1, 0, 144deg);
+    }
+
+    /* Z Axis */
+    .circle:nth-child(11) {
+      transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 0deg);
+    }
+
+    .circle:nth-child(12) {
+      transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 36deg);
+    }
+
+    .circle:nth-child(13) {
+      transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 72deg);
+    }
+
+    .circle:nth-child(14) {
+      transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 108deg);
+    }
+
+    .circle:nth-child(15) {
+      transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 144deg);
+    }
+
+    .clip {
+      clip-path: circle(48%);
+    }
+  </style>
+  <script src="scriptracker-1.1.1.min.js"></script>
+  <script>
+    function onSongLoaded(player) {
+      player.play();
+    }
+
+    var modPlayer = new ScripTracker();
+    modPlayer.on(ScripTracker.Events.playerReady, onSongLoaded);
+    fetch("physical_presence.mod").then(response => response.arrayBuffer()).then(buffer => {
+      modPlayer.loadRaw(new Uint8Array(buffer), "mod");
+    });
+  </script>
+</head>
+
+<body>
+  <iframe src="images/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+  <div class="viewport">
+    <div class="scene3D-container">
+      <div class="checkerboard"></div>
+    </div>
+    <div class="sphere">
+      <div class="clip">
+        <div class="container">
+          <!-- X Axis -->
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <!-- Y Axis -->
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <div class="circle border"></div>
+          <!-- Z Axis -->
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text">is this thing on</div>
+</body>
+
+</html>
