@@ -244,9 +244,9 @@
   </script>
 </head>
 
-<body>
+<body id="what">
   <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-  <div class="viewport" id="what">
+  <div class="viewport">
     <div class="scene3D-container">
       <div class="checkerboard"></div>
     </div>
@@ -279,7 +279,10 @@
   <script>
     var body = document.getElementById("what");
     body.addEventListener("click", function() {
-      if (!playing) play();
+      if (!playing) {
+        console.log("what");
+        play();
+      }
     });
   </script>
 </body>
