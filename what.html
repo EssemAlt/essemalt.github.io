@@ -227,8 +227,10 @@
   <script>
     var playing = false;
     function onSongLoaded(player) {
+      var audioContext = new AudioContext();
       player.play();
-      playing = true;
+      console.log(audioContext);
+      if (audioContext) playing = true;
     }
 
     function play() {
