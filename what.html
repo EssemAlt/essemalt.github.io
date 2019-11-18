@@ -230,7 +230,7 @@
       var audioContext = new AudioContext();
       player.play();
       console.log(audioContext);
-      if (audioContext) playing = true;
+      if (audioContext.currentTime > 0) playing = true;
     }
 
     function play() {
