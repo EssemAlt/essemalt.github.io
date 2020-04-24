@@ -242,6 +242,7 @@
       fetch(name).then(response => response.arrayBuffer()).then(buffer => {
         modPlayer.loadRaw(new Uint8Array(buffer), "mod");
       });
+      return modPlayer;
     }
     play("physical_presence.mod");
   </script>
