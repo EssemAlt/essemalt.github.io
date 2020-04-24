@@ -236,14 +236,14 @@
       player.play();
     }
 
-    function play() {
+    function play(name) {
       var modPlayer = new ScripTracker();
       modPlayer.on(ScripTracker.Events.playerReady, onSongLoaded);
-      fetch("physical_presence.mod").then(response => response.arrayBuffer()).then(buffer => {
+      fetch(name).then(response => response.arrayBuffer()).then(buffer => {
         modPlayer.loadRaw(new Uint8Array(buffer), "mod");
       });
     }
-    play();
+    play("physical_presence.mod");
   </script>
 </head>
 
